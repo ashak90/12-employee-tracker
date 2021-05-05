@@ -1,0 +1,19 @@
+{
+  "name": "12-employee-tracker",
+  "version": "1.0.0",
+  "description": "CLI for an employee tracking database",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashak90/12-employee-tracker.git"
+  },
+  "author": "Asha Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashak90/12-employee-tracker/issues"
+  },
+  "homepage": "https://github.com/ashak90/12-employee-tracker#readme"
+}
