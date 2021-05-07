@@ -1,12 +1,4 @@
-DROP DATABASE IF EXISTS employee_trackerdb;
-CREATE DATABASE employee_trackerdb;
-USE employee_trackerdb;
 
-CREATE TABLE departments (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR (30),
-    PRIMARY KEY (id)
-);
 
 INSERT INTO
     departments (name)
@@ -17,14 +9,6 @@ VALUES
     ('Research and Development'),
     ('Human Resources');
 
-CREATE TABLE roles (
-    id INT NOT NULL AUTO_INCREMENT,
-    title VARCHAR (30),
-    salary DECIMAL (8, 2),
-    department_id INT,
-    FOREIGN KEY (department_id) REFERENCES departments(id),
-    PRIMARY KEY (id)
-);
 
 INSERT INTO
     roles (title, salary, department_id)
@@ -49,18 +33,6 @@ VALUES
     ("Senior Developer", 140600, 1),
     ("Senior Quality Engineer", 108900, 1),
     ("Structural Engineer", 98000, 1);
-
-CREATE TABLE employees (
-    id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR (30) NULL,
-    last_name VARCHAR (30) NULL,
-    role_id INT,
-    manager_id INT,
-    is_manager BOOLEAN,
-    FOREIGN KEY (role_id) REFERENCES roles(id),
-    FOREIGN KEY (manager_id) REFERENCES employees(id),
-    PRIMARY KEY (id)
-);
 
 INSERT INTO
     employees (first_name, last_name, role_id, is_manager)
