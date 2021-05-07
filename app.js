@@ -40,6 +40,12 @@ function showMainMenu(){
             }
         })
 
+        async function viewAllEmployees(){
+            const employee = await database.showAllEmployees();
+            console.table(employee);
+            showMainMenu();
+        }
+
         async function viewAllRoles(){
             const role = await database.showAllRoles();
             console.table(role);

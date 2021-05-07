@@ -8,9 +8,9 @@ class Database {
 
     showAllRoles(){
         return new Promise((resolve,reject) => {
-        connection.query("SELECT * FROM role",(err,results) => {
+        connection.query("SELECT * FROM roles",(err,result) => {
             if (err) reject(err);
-            resolve(results)
+            resolve(result)
 
         })
        
