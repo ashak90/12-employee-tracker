@@ -1,5 +1,5 @@
-const connection = require("./connection")
-const mysql = require("mysql")
+import connection from "./connection.js";
+
 
 class Database {
     constructor(connection){
@@ -18,4 +18,4 @@ class Database {
     }
 }
 
-module.exports= new Database;
+export default new Database(connection);

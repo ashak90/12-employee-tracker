@@ -1,7 +1,12 @@
 import mysql from "mysql";
-const path = require("path"),
-const util = require("util"),
-const dotenv = require('dotenv').config({path: path.resolve(__dirname,'../.env')});
+import path from "path";
+
+import util from "util";
+// const path = require("path"),
+// const util = require("util"),
+const __dirname = path.resolve();
+import dotenv from 'dotenv';
+dotenv.config({path: path.resolve(__dirname,'../.env')});
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -14,4 +19,4 @@ const connection = mysql.createConnection({
 
   connection.query = util.promisify(connection.query);
 
-module.exports = connection;
+export default connection;

@@ -1,7 +1,6 @@
 import inquirer from "inquirer";
 import figlet from "figlet";
-import database from "./database/index.js";
-
+import database from './database/index.js';
   
 function welcome(){
     console.log(
