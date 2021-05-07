@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import figlet from "figlet";
+import database from "./database/index.js";
 
   
 function welcome(){
@@ -39,6 +40,12 @@ function showMainMenu(){
                 break;
             }
         })
+
+        async function viewAllRoles(){
+            const role = await database.showAllRoles();
+            console.table(role);
+            showMainMenu();
+        }
 }
 
 welcome();
