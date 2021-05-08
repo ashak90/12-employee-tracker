@@ -13,9 +13,11 @@ const connection = mysql.createConnection({
     port: 3306,
     user: 'root',
     password: 'ilovecode',
-    database: 'employee_trackerdb',
+    database: 'employee_trackerdb'
          
   });
+
+  
 
   connection.query = util.promisify(connection.query);
 

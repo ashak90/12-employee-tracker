@@ -125,3 +125,5 @@ SET
     manager_id = 18
 WHERE
     id = 7;
+
+SELECT * from roles;

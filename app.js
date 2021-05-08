@@ -1,7 +1,9 @@
 import inquirer from "inquirer";
 import figlet from "figlet";
-import database from './database/index.js';
-  
+import database from './db/index.js';
+import connection from './db/connection.js';
+
+
 function welcome(){
     console.log(
         figlet.textSync("EMS")
@@ -47,8 +49,8 @@ function showMainMenu(){
         }
 
         async function viewAllRoles(){
-            const role = await database.showAllRoles();
-            console.table(role);
+            const roles = await database.showAllRoles();
+            console.table(roles);
             showMainMenu();
         }
 }
