@@ -11,9 +11,9 @@ dotenv.config({path: path.resolve(__dirname,'../.env')});
 const connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
-    user: 'root',
-    password: 'ilovecode',
-    database: 'employee_trackerdb'
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
          
   });
 
