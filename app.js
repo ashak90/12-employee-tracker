@@ -32,12 +32,16 @@ function showMainMenu(){
         ])
         .then(function(response) {
             switch (response.viewAction){
-                case "View all departments":
+                case "View all employees":
                     viewAllEmployees();
                 break;
 
                 case "View all roles":
                     viewAllRoles();
+                break;
+
+                case "View all departments":
+                    viewAllDepartments();
                 break;
             }
         })
@@ -50,6 +54,12 @@ function showMainMenu(){
 
         async function viewAllRoles(){
             const roles = await database.showAllRoles();
+            console.table(roles);
+            showMainMenu();
+        }
+
+        async function viewAllDepartments(){
+            const roles = await database.showAllDepartments();
             console.table(roles);
             showMainMenu();
         }
