@@ -27,6 +27,7 @@ function showMainMenu(){
                     "Add new role",
                     "Add new employee",
                     "Update Employee Role",
+                    "Exit",
                 ],
             },
         ])
@@ -42,6 +43,22 @@ function showMainMenu(){
 
                 case "View all departments":
                     viewAllDepartments();
+                break;
+
+                case "Add new employee":
+                    addNewEmployee();
+                break;
+
+                case "Add new role":
+                    addNewRole();
+                break;
+
+                case "Add new department":
+                    addNewDepartment();
+                break;
+
+                case "Exit": 
+                    connection.end();
                 break;
             }
         })
