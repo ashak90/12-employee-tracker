@@ -31,6 +31,19 @@ class Database {
       });
     });
   }
+
+  addNewEmployee(firstName, lastName,roleID, managerID, isManager) {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        "INSERT INTO employees (first_name, last_name,role_id, manager_id, is_manager) VALUES (?,?,?,?)",
+        [firstName, lastName,roleID, managerID, isManager]
+      ),
+        function (err, data) {
+          if (err) reject(err);
+          resolve(data);
+        };
+    });
+  }
 }
 
 export default new Database(connection);
