@@ -1,4 +1,4 @@
-import mysql from "mysql";
+import mysql from "mysql2";
 import path from "path";
 
 import util from "util";

@@ -98,10 +98,9 @@ function addNewEmployee() {
         message: "Enter the employee's role ID:",
       },
       {
-        type: "list",
+        type: "confirm",
         name: "isManager",
         message: "Is the employee a manager?",
-        choices: ["true", "false"],
       },
       {
         type: "number",

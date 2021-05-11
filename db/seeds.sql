@@ -35,7 +35,7 @@ VALUES
     ("Structural Engineer", 98000, 1);
 
 INSERT INTO
-    employees (first_name, last_name, role_id, manager_id, is_manager)
+    employees (first_name, last_name, role_id, manager_id)
 VALUES
     ("Marv", "Kent", 10,11, TRUE),
     ("Theodore", "Billingsly", 6,6,TRUE),
