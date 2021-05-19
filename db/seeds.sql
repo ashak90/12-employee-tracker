@@ -1,4 +1,4 @@
-
+USE employee_trackerdb
 
 INSERT INTO
     departments (name)
@@ -35,95 +35,14 @@ VALUES
     ("Structural Engineer", 98000, 1);
 
 INSERT INTO
-    employees (first_name, last_name, role_id, manager_id)
+    employees (first_name, last_name, role_id, is_manager)
 VALUES
-    ("Marv", "Kent", 10,11, TRUE),
-    ("Theodore", "Billingsly", 6,6,TRUE),
-    ("Rudy", "Harlett", 18,0, FALSE),
-    ("Blake", "McKernon", 5,0, FALSE),
-    ("Jared", "Bastock", 9,15 TRUE),
-    ("Katy", "Teasell", 17,98 TRUE),
-    ("Laney", "Abbatucci", 7,23 TRUE),
-    ("Elsa", "Kenrat", 8, 32,TRUE),
-    ("Georgia", "Bortolini", 13,0, FALSE),
-    ("Lottie", "Whybrow", 4,0, FALSE),
-    ("Hermine", "Goldhill", 2,64, TRUE),
-    ("Derrick", "Garr", 16,0, FALSE),
-    ("Jedediah", "Benito", 12,0, FALSE),
-    ("Yelena", "Negri", 15,0, FALSE),
-    ("Antonetta", "Moir", 20,41, TRUE),
-    ("Eleanor", "Sinclair", 5,0, FALSE),
-    ("Harriet", "Bilbey", 15,0 FALSE),
-    ("Loni", "Kildahl", 3,87 TRUE),
-    ("Dur", "Allsobrook", 15,0, FALSE),
-    ("Erica", "Rodriguez", 16,0, FALSE),
-    ("Revkah", "Seamer", 14,0 FALSE),
-    ("Constantin", "Duprey", 1,0 FALSE),
-    ("Allyn", "Povah", 11,0 FALSE),
-    ("Stefanie", "Midlar", 19,0, FALSE),
-    ("Enrika", "Soaper", 16,0 FALSE);
-
-UPDATE
-    employees
-SET
-    manager_id = 1
-WHERE
-    id in (4, 10, 6);
-
-UPDATE
-    employees
-SET
-    manager_id = 2
-WHERE
-    id in (3, 22, 24);
-
-UPDATE
-    employees
-SET
-    manager_id = 5
-WHERE
-    id in (14, 17, 19, 21);
-
-UPDATE
-    employees
-SET
-    manager_id = 6
-WHERE
-    id = 2;
-
-UPDATE
-    employees
-SET
-    manager_id = 7
-WHERE
-    id in (9, 13, 23);
-
-UPDATE
-    employees
-SET
-    manager_id = 8
-WHERE
-    id in (12, 20, 25);
-
-UPDATE
-    employees
-SET
-    manager_id = 11
-WHERE
-    id = 1;
-
-UPDATE
-    employees
-SET
-    manager_id = 15
-WHERE
-    id = 8;
-
-UPDATE
-    employees
-SET
-    manager_id = 18
-WHERE
-    id = 7;
-
-SELECT * from roles;
+    ("Thomas", "King", 10, TRUE),
+    ("Frank", "Lloyd", 6, TRUE),
+    ("Randy", "Harlett", 18, FALSE),
+    ("Julie", "Richards", 5, FALSE),
+    ("Jared", "Lewis", 9, TRUE),
+    ("Katie", "Sailor", 17, TRUE),
+    ("Julia", "Long", 5, FALSE),
+    ("John", "Lewis", 9, TRUE),
+    ("lauren", "Banks", 17, TRUE),

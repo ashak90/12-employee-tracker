@@ -2,6 +2,10 @@ import inquirer from "inquirer";
 import figlet from "figlet";
 import database from "./db/index.js";
 import connection from "./db/connection.js";
+// import db from "./db/index.js";
+import cTable from "console.table";
+
+
 
 function welcome() {
   console.log(figlet.textSync("EMS"));
@@ -77,50 +81,89 @@ function showMainMenu() {
     console.table(departments);
     showMainMenu();
   }
+  function addNewEmployee() {
+    console.log("Add a new employee");
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "firstName",
+          message: "Enter the employee's first name:",
+        },
+        {
+          type: "input",
+          name: "lastName",
+          message: "Enter the employee's last name:",
+        },
+        {
+          type: "number",
+          name: "roleID",
+          message: "Enter the employee's role ID:",
+        },
+        {
+          type: "confirm",
+          name: "isManager",
+          message: "Is the employee a manager?",
+        },
+        {
+          type: "number",
+          name: "managerID",
+          message: "If the employee is a manager enter their ID, if not enter 0:",
+        },
+      ]).then(function (response) {
+        const addEmployee = database.addNewEmployee(response.firstName,response.lastName,response.roleID,response.managerID,response.isManager)
+        console.log("New Employee Added")
+          .then(() => {
+            console.log("New Employee Added")
+            console.table("New Employee Added");
+            showMainMenu();
+          });
+      });
+  }
 }
-function addNewEmployee() {
-  console.log("Add a new employee");
-  inquirer
-    .prompt([
-      {
-        type: "input",
-        name: "firstName",
-        message: "Enter the employee's first name:",
-      },
-      {
-        type: "input",
-        name: "lastName",
-        message: "Enter the employee's last name:",
-      },
-      {
-        type: "number",
-        name: "roleID",
-        message: "Enter the employee's role ID:",
-      },
-      {
-        type: "confirm",
-        name: "isManager",
-        message: "Is the employee a manager?",
-      },
-      {
-        type: "number",
-        name: "managerID",
-        message: "If the employee is a manager enter their ID, if not enter 0:",
-      },
-    ]).then(function (response) {
-      database
-        .addNewEmployee(
-          response.firstName,
-          response.lastName,
-          response.roleID,
-          response.managerID,
-          response.isManager
-        )
-        .then(() => {
-          console.table("New Employee Added");
-          showMainMenu();
-        });
-    });
-}
+// function addNewEmployee() {
+//   console.log("Add a new employee");
+//   inquirer
+//     .prompt([
+//       {
+//         type: "input",
+//         name: "firstName",
+//         message: "Enter the employee's first name:",
+//       },
+//       {
+//         type: "input",
+//         name: "lastName",
+//         message: "Enter the employee's last name:",
+//       },
+//       {
+//         type: "number",
+//         name: "roleID",
+//         message: "Enter the employee's role ID:",
+//       },
+//       {
+//         type: "confirm",
+//         name: "isManager",
+//         message: "Is the employee a manager?",
+//       },
+//       {
+//         type: "number",
+//         name: "managerID",
+//         message: "If the employee is a manager enter their ID, if not enter 0:",
+//       },
+//     ]).then(function (response) {
+//       database
+//         .addNewEmployee(
+//           response.firstName,
+//           response.lastName,
+//           response.roleID,
+//           response.managerID,
+//           response.isManager
+//         )
+//         .then(() => {
+//           console.table("New Employee Added");
+//           showMainMenu();
+//         });
+//     });
+// }
 
 welcome();

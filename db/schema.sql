@@ -18,14 +18,16 @@ CREATE TABLE roles (
 );
 
 CREATE TABLE employees (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR (30) NOT NULL,
-    last_name VARCHAR (30) NOT NULL,
-    role_id INT UNSIGNED NOT NULL,
-    INDEX role_ind (role_id)
-    manager_id INT UNSIGNED,
-    INDEX manager_ind (manager_id)
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR (30) NULL,
+    last_name VARCHAR (30) NULL,
+    role_id INT,
+    manager_id INT,
     is_manager BOOLEAN,
+    FOREIGN KEY (role_id) REFERENCES roles(id),
+    FOREIGN KEY (manager_id) REFERENCES employees(id),
+    PRIMARY KEY (id),
+    
 );
 
 SELECT * from departments;
