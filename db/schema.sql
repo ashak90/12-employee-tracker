@@ -26,8 +26,7 @@ CREATE TABLE employees (
     is_manager BOOLEAN,
     FOREIGN KEY (role_id) REFERENCES roles(id),
     FOREIGN KEY (manager_id) REFERENCES employees(id),
-    PRIMARY KEY (id),
-    
+    PRIMARY KEY (id)
 );
 
 SELECT * from departments;
