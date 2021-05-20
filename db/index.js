@@ -31,6 +31,18 @@ class Database {
       });
     });
   }
+  addNewDepartment(departmentName) {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        "INSERT INTO departments (department_name) VALUES (?)",
+        [departmentName]
+      ),
+        function (err, data) {
+          if (err) reject(err);
+          resolve(data);
+        };
+    });
+  }
 
   addNewEmployee(firstName, lastName, roleID, managerID, isManager) {
     return new Promise((resolve, reject) => {

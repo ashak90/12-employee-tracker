@@ -81,6 +81,23 @@ function showMainMenu() {
     console.table(departments);
     showMainMenu();
   }
+  function addNewDepartment() {
+    console.log("Add a new department");
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "departmentName",
+          message: "Enter the name of the new department:",
+        }
+      ]).then (function (response) {
+        const addDepartment = database.addNewDepartment(response.departmentName);
+        // console.log("New Employee Added")
+        console.table(addDepartment);
+        showMainMenu();
+
+      });
+  }
   function addNewEmployee() {
     console.log("Add a new employee");
     inquirer
