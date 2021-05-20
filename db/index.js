@@ -69,6 +69,19 @@ class Database {
         };
     });
   }
+
+  updateEmployeeRole(id, role_id) {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        "UPDATE employees set role_id=? where id=?",
+        [role_id, id]
+      ),
+        function (err, data) {
+          if (err) reject(err);
+          resolve(data);
+        };
+    });
+  }
 }
 
 export default new Database(connection);
