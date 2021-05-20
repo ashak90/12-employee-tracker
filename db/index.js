@@ -44,6 +44,19 @@ class Database {
     });
   }
 
+  addNewRole(title, salary, department_id) {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        "INSERT INTO roles (title, salary, department_id) VALUES (?,?,?)",
+        [title, salary, department_id]
+      ),
+        function (err, data) {
+          if (err) reject(err);
+          resolve(data);
+        };
+    });
+  }
+
   addNewEmployee(firstName, lastName, roleID, managerID, isManager) {
     return new Promise((resolve, reject) => {
       connection.query(

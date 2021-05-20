@@ -90,10 +90,37 @@ function showMainMenu() {
           name: "departmentName",
           message: "Enter the name of the new department:",
         }
-      ]).then (function (response) {
+      ]).then(function (response) {
         const addDepartment = database.addNewDepartment(response.departmentName);
         // console.log("New Employee Added")
         console.table(addDepartment);
+        showMainMenu();
+
+      });
+  }
+  function addNewRole() {
+    console.log("Add a new role");
+    inquirer
+      .prompt([
+        {
+          type: "input",
+          name: "title",
+          message: "Enter the name of the new role:",
+        },
+        {
+          type: "input",
+          name: "salary",
+          message: "Enter the salary for this new role:",
+        },
+        {
+          type: "input",
+          name: "department_id",
+          message: "Enter the department ID for this role:",
+        }
+      ]).then(function (response) {
+        const addRole = database.addNewRole(response.title, response.salary, response.department_id);
+        // console.log("New Employee Added")
+        console.table(addRole);
         showMainMenu();
 
       });
@@ -125,7 +152,7 @@ function showMainMenu() {
         {
           type: "number",
           name: "managerID",
-          message: "Enter the Employee's Manger ID, if the employee doesn't have a manager enter 0:",
+          message: "Enter the Employee's Manger ID:",
           when: (response) => response.isManager === false,
         },
       ]).then(function (response) {
