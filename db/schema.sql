@@ -3,31 +3,42 @@ CREATE DATABASE employee_trackerdb;
 USE employee_trackerdb;
 
 CREATE TABLE departments (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR (30),
-    PRIMARY KEY (id)
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    NAME VARCHAR (30) UNIQUE NOT NULL
 );
 
 CREATE TABLE roles (
-    id INT NOT NULL AUTO_INCREMENT,
-    title VARCHAR (30),
-    salary DECIMAL (8, 2),
-    department_id INT,
-    FOREIGN KEY (department_id) REFERENCES departments(id),
-    PRIMARY KEY (id)
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(30) NOT NULL,
+    salary DECIMAL NOT NULL,
+    department_id INT UNSIGNED NOT NULL,
+    INDEX dep_ind (department_id),
+    CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES departments (id) ON DELETE CASCADE
 );
 
 CREATE TABLE employees (
-    id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR (30) NULL,
-    last_name VARCHAR (30) NULL,
-    role_id INT,
-    manager_id INT,
-    is_manager BOOLEAN,
-    FOREIGN KEY (role_id) REFERENCES roles(id),
-    FOREIGN KEY (manager_id) REFERENCES employees(id),
-    PRIMARY KEY (id)
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT UNSIGNED NOT NULL,
+    INDEX role_ind (role_id),
+    CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES roles (id) on DELETE CASCADE,
+    manager_id INT UNSIGNED,
+    INDEX man_ind (manager_id),
+    CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employees (id) on DELETE SET NULL,
+    is_manager BOOLEAN
 );
+
+-- CREATE TABLE employees (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     first_name VARCHAR (30) NULL,
+--     last_name VARCHAR (30) NULL,
+--     role_id INT,
+--     is_manager BOOLEAN,
+--     FOREIGN KEY (role_id) REFERENCES roles(id),
+--     FOREIGN KEY (manager_id) REFERENCES employees(id),
+--     PRIMARY KEY (id)
+-- );
 
 SELECT * from departments;
 SELECT * from roles;

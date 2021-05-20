@@ -108,7 +108,8 @@ function showMainMenu() {
         {
           type: "number",
           name: "managerID",
-          message: "If the employee is a manager enter their ID, if not enter 0:",
+          message: "Enter the Employee's Manger ID, if the employee doesn't have a manager enter 0:",
+          when: (response) => response.isManager === false,
         },
       ]).then(function (response) {
         const addEmployee = database.addNewEmployee(response.firstName, response.lastName, response.roleID, response.managerID, response.isManager);
